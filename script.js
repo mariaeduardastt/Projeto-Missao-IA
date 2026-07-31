@@ -66,22 +66,16 @@ const perguntas = [
     },
 ];
 
-let atual = 0; 
+let atual = 0;
 let perguntaAtual;
 let historiaFinal = "";
 
 function mostraPergunta() {
-    if(atual >= perguntas.length){
-        mostraResultado();
-        return;
-    }
-    perguntaAtual = perguntas[atual];
-    caixaPerguntas.textContent = perguntaAtual.enunciado;
-    caixaAlternativas.textContent = "";
-    mostraAlternativas();
+  perguntaAtual = perguntas[atual];
+  caixaPerguntas.textContent = perguntaAtual.enunciado;
+  mostraAlternativas();
 }
-
-function mostraAlternativas(){
+function mostraAlternativas() {
     for(const alternativa of perguntaAtual.alternativas){
         const botaoAlternativas = document.createElement("button");
         botaoAlternativas.textContent = alternativa.texto;
