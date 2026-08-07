@@ -34,7 +34,7 @@ const perguntas = [
                     "racismo enfraquece a autoestima, perpetuando sentimentos de inferioridade",
                     "afirmacao 2"
                     ]
-            },
+            },<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
             {
                 texto: "contribui para a exclusão social e marginalização de grupos minoritarios ",
                 afirmacao: [
@@ -100,3 +100,4 @@ function mostraResultado(){
     textoResultado.textContent = historiaFinal;
     caixaAlternativas.textContent = ""; 
 }
+mostraPergunta();
