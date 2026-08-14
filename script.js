@@ -6,64 +6,62 @@ const textoResultado = document.querySelector(".texto-resultado");
 
 const perguntas = [
     {
-        enunciado: "O que caracteriza o racismo estrutural na sociedade?",
-        alternativas: [
+        "enunciado": "O que caracteriza o racismo estrutural na sociedade?",
+        "alternativas": [
             {
-                texto: "Desigualdades raciais",
-                afirmacao: [
+                "texto": "Desigualdades raciais enraizadas nas instituições",
+                "afirmacao": [
                     "São perpetuadas por instituições, políticas e normas sociais.",
-                    "afirmacao 2"
-                    ]
+                    "O racismo estrutural se manifesta na dificuldade de acesso a oportunidades de trabalho, educação e posições de liderança."
+                ]
             },
             {
-                texto: "Discriminação individual",
-                afirmacao: [
-                    "Apenas a discriminações individual e direta afeta a sociedade",
-                    "afirmacao 2"
-                    ]
+                "texto": "Ações isoladas de discriminação individual",
+                "afirmacao": [
+                    "Apenas focar em atitudes individuais ignora como as leis e a história moldaram as desigualdades.",
+                    "Superar o racismo exige transformar não só comportamentos pessoais, mas também estruturas sociais e jurídicas."
+                ]
             }           
-            
         ]
     },
     {
-        enunciado: "principal dano causado pelo racismo",
-        alternativas: [
+        "enunciado": "Qual é o principal dano causado pelo racismo?",
+        "alternativas": [
             {
-                texto:"fortalece a autoestima das vitimas",
-                afirmacao: [
-                    "racismo enfraquece a autoestima, perpetuando sentimentos de inferioridade",
-                    "afirmacao 2"
-                    ]
-            },<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
-            {
-                texto: "contribui para a exclusão social e marginalização de grupos minoritarios ",
-                afirmacao: [
-                    "reforça a desigualdade e estereótipos discriminatórios",
-                    "afirmacao 2"
-                    ]
-            }
-        ]
-    },
-    {
-        enunciado: "você apoia racismo?",
-        alternativas: [
-            {
-                texto:"sim, eu apoio o movimento racista",
-                afirmacao: [
-                    "você realmente já ouviu  falar o que é o racismo?  A sua história e quantas milhares de pessoa foram prejudicadas e mortas? ",
-                    "afirmacao 2"
-                    ]
+                "texto": "Impactos profundos na saúde mental e na autoimagem das vítimas",
+                "afirmacao": [
+                    "O racismo enfraquece a autoestima, perpetuando sentimentos de inferioridade e gerando traumas psicológicos.",
+                    "A discriminação constante afeta o bem-estar emocional e limita o desenvolvimento pleno de crianças e adultos."
+                ]
             },
             {
-                texto:"Não, sou contra o movimento racista",
-                afirmacao: [
-                    "que legal! concordamos que o racismo não é uma coisa boa ",
-                    "afirmacao 2"
-                    ]
+                "texto": "Perpetuação da exclusão social e marginalização de grupos minoritários",
+                "afirmacao": [
+                    "Reforça a desigualdade econômica e estimula estereótipos discriminatórios na sociedade.",
+                    "Priva a sociedade da diversidade cultural e do potencial de milhões de pessoas que têm seus direitos negados."
+                ]
             }
-            
         ]
     },
+    {
+        "enunciado": "Como a sociedade deve se posicionar em relação ao racismo?",
+        "alternativas": [
+            {
+                "texto": "Apoiar a conscientização e o combate ativo ao racismo (Antirracismo)",
+                "afirmacao": [
+                    "Ser antirracista exige reconhecer os privilégios e agir ativamente contra qualquer forma de discriminação.",
+                    "A história mostra que a luta contra o racismo é essencial para garantir direitos humanos e igualdade para todos."
+                ]
+            },
+            {
+                "texto": "Adotar uma postura contrária a qualquer manifestação racista",
+                "afirmacao": [
+                    "Concordamos que o racismo é uma violação dos direitos humanos que precisa ser erradicada.",
+                    "Promover a empatia, o respeito e a equidade é fundamental para construir uma sociedade justa e inclusiva."
+                ]
+            }
+        ]
+    }
 ];
 
 let atual = 0; 
@@ -71,7 +69,7 @@ let perguntaAtual;
 let historiaFinal = "";
 
 function mostraPergunta() {
-    if(atual >= perguntas.length){
+    if (atual >= perguntas.length) {
         mostraResultado();
         return;
     }
@@ -81,8 +79,8 @@ function mostraPergunta() {
     mostraAlternativas();
 }
 
-function mostraAlternativas(){
-    for(const alternativa of perguntaAtual.alternativas){
+function mostraAlternativas() {
+    for (const alternativa of perguntaAtual.alternativas) {
         const botaoAlternativas = document.createElement("button");
         botaoAlternativas.textContent = alternativa.texto;
         botaoAlternativas.addEventListener("click", () => respostaSelecionada(alternativa));
@@ -90,15 +88,16 @@ function mostraAlternativas(){
     }
 }
 
-function respostaSelecionada(opcaoSelecionada){
-    const afirmacoes = opcaoSelecionada.afirmacao;
+function respostaSelecionada(opcaoSelecionada) {
+    // Unifica as afirmações com espaço, evitando vírgulas indesejadas no texto final
+    const afirmacoes = opcaoSelecionada.afirmacao.join(" ");
     historiaFinal += afirmacoes + " ";
     atual++;
     mostraPergunta();
 }
 
-function mostraResultado(){
-    caixaPerguntas.textContent = "Em 2049...";
+function mostraResultado() {
+    caixaPerguntas.textContent = "Conclusão:";
     textoResultado.textContent = historiaFinal;
     caixaAlternativas.textContent = ""; 
 }
