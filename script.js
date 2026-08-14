@@ -89,7 +89,6 @@ function mostraAlternativas() {
 }
 
 function respostaSelecionada(opcaoSelecionada) {
-    // Unifica as afirmações com espaço, evitando vírgulas indesejadas no texto final
     const afirmacoes = opcaoSelecionada.afirmacao.join(" ");
     historiaFinal += afirmacoes + " ";
     atual++;
